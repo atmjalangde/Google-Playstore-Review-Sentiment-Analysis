@@ -1,0 +1,110 @@
+{% load static %}
+
+{%block content %}
+
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Playstore: Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="{%static  'sentiment/css/style.css'%}" rel='stylesheet' type='text/css' />
+<link href="{%static  'sentiment/css/font-awesome.css'%}" rel="stylesheet"> 
+<script src="{%static  'sentiment/js/jquery.min.js'%}"> </script>
+<script src="{%static  'sentiment/js/bootstrap.min.js'%}"> </script>
+</head>
+<body>
+	<div class="login">
+		<h1><a href="register">Playstore </a></h1>
+        <form action="register" method="POST">
+            {%csrf_token%}
+		<div class="login-bottom">
+			<h2>Register</h2>
+			<div class="col-md-6">
+                <div class="login-mail">
+					<input type="text" placeholder="Name" name="name" required="">
+					<i class="fa fa-user"></i>
+                </div>
+				<div class="login-mail">
+					<input type="email" style="border:none; width:450px;padding-top:10px;padding-bottom:10px;" placeholder="Email" name="email" required="">
+					<i class="fa fa-envelope"></i>
+				</div>
+				<div class="login-mail">
+					<input type="text" placeholder="Mobile" id="mobile" name="mobile" required="">
+					<i class="fa fa-phone"></i>
+				</div>
+                <div class="login-mail">
+					<input type="text" placeholder="City" name="city" required="">
+					<i class="fa fa-circle"></i>
+                </div>
+				<div class="login-mail">
+					<input type="password" id="ps"  placeholder="Password" name="password" required="">
+					<i class="fa fa-lock"></i>
+					<div id="msg" style="display: show;"></div>
+                </div>
+				<div class="login-mail">
+				<select name="ques">
+					<option>Select a Security Question</option>
+					<option>What is your first pet name?</option>
+					<option>What is your fav food name?</option>
+					<option>What is your first school name?</option>
+				</select>	
+				</div>
+				<div class="login-mail">
+					<input type="text" placeholder="Answer" name="ans" required="">
+					<i class="fa fa-user"></i>
+                </div>
+			</div>
+		<div class="col-md-6 login-do">
+				<label class="hvr-shutter-in-horizontal login-sub">
+					<input type="submit" value="Submit" >
+					</label>
+					<p>If Already registered ?</p>
+				<a href="login" class="hvr-shutter-in-horizontal" style="width: auto;">Login</a>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+    </form>
+	<br><br>
+			{% for message in messages %}
+			<div class="alert {{ message.tags }} alert-dismissible" role ="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-lable="close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<center>
+					<h3 style="color:red">{{message | safe }}</h3>
+				</center>
+			</div>
+			{% endfor %}
+	</div>
+		<!---->
+<div class="copy-right">
+            <p> &copy; 2021 Playstore.All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">Tech Warriors</a> </p>	    </div>
+	  
+<!---->
+<!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+</body>
+</html>
+
+
+<!---->
+<!--scrolling js-->
+<script src="{%static  'sentiment/js/jquery.nicescroll.js'%}"></script>
+<script src="{%static  'sentiment/js/scripts.js'%}"></script>
+<!--//scrolling js-->
+{%endblock%}

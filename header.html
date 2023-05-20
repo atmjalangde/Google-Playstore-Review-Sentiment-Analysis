@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="{%static  'sentiment/engine1/style.css' %}"/>
+<script type="text/javascript" src="{%static 'sentimentengine1/jquery.js' %}"></script>
+<!-- End WOWSlider.com HEAD section -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial</title>
+    <style>
+        .head{
+            background-color: yellow;
+            font-size: 50px;
+            color: blue;
+            padding: 15px;
+        }
+        .nav{
+            background-color: black;
+            text-align: right;
+            padding: 10px;
+            color: burlywood;
+        }
+        .nav a {
+            color: blue;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-decoration: none;
+        }
+
+        .nav a:hover{
+            background-color: blue;
+            color: yellowgreen;
+        }
+
+        .foot{
+            text-align: center;
+            padding: 10px;
+            font-size: 16px;
+            color: wheat;
+            background-color: black;
+        }
+
+        .common{
+            padding:30px;
+        }
+        .incommon{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-left: 25%;
+            text-align: center;
+            width:40%;
+            background-color:pink;
+        }
+        input[type="text"],input[type="email"],input[type="number"],input[type="password"]{
+            padding:8px;
+            width:180px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        input[type="submit"]{
+            padding:8px;
+            width: 200px;
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: black;
+            color: white;
+        }
+        input[type="submit"]:hover{
+            background-color: tomato;
+            color:yellowgreen;
+        }
+        select {
+            padding:8px;
+            width: 200px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-bottom: 10px;}
+        .user{
+            padding:30px;
+            margin-bottom: 30px;
+            height: 350px;
+        }
+        .admin{
+            padding:30px;
+            margin-bottom: 30px;
+            height: 350px;
+        }
+        .tb{
+            padding: 30px;
+        }
+
+        table input[type="submit"]{
+            width: 100px;
+            margin:5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class='head'>Googleplaystore</div>
+  <div class='nav'>
+      <a href="home">Home</a>
+      {%if request.session.email is not None %}
+      <a href="">{{request.session.email}}</a>
+      <a href="userhome">Userhome</a>
+      <a href="logout">Logout</a>
+
+      {%elif request.session.admin is not None %}
+      <a href="adminhome">Adminhome</a>
+      <a href="logout1">Logout</a>
+      
+      {%else%}
+      <a href="login">Login</a>
+      <a href="register">Register</a>
+      <a href="search">Search</a>
+      <a href="contact">Contact</a>
+     
+      {%endif%}
+  </div>
+  {%block content %}
+
+  {%endblock%}  
+  <div class='foot'>
+      @copyright 2021 Allrights reserved 
+  </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% extends 'header1.html'%}
+{%load static%}
+{%block content %}
+<style>
+    .col1{
+        float:left;
+        width:50%;
+        height:400px;
+        text-align: center ;
+
+    }
+</style>
+<div class="banner">
+    <h2>
+    <a href="index.html">Home</a>
+    <i class="fa fa-angle-right"></i>
+    <span>Blank</span>
+    </h2>
+</div>
+<div class="row">
+    <div class="col1">
+        <h1>Scan to pay this</h1>
+        <img src="{%static  'sentiment/assets/images/scanner.jpg' %}" height="300" width="300" alt="">
+        <br>
+        
+        <form action="payment" method="POST">
+            {% csrf_token %}
+            <input type="text" name="old"placeholder="Enter Transaction / order ID"><br>
+            <input type="submit" value="Submit">
+        </form> 
+    </div>  
+    <div class="col1">
+        <!--<form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js"  data-payment_button_id="pl_FNTT4UfPrdh1GL" async></script>
+        </form>-->
+        
+    </div>
+</div>
+
+{%endblock%}

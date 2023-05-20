@@ -1,0 +1,126 @@
+{% extends 'header1.html'%}
+
+{%block content %}
+ 
+ 	<!--banner-->	
+     <div class="banner">
+        <h2>
+        <a href="index.html">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Search</span>
+        </h2>
+    </div>
+
+<!--//banner-->
+<!--grid-->
+<div class="inbox-mail">
+<div class="col-md-4 compose">
+    <h2>Total / Overall fetched comments</h2>
+<nav class="nav-sidebar">
+
+</nav>
+
+</div>
+<div class="col-md-12 graph-box1 clearfix">	
+    <div class="grid-1">
+        <h4>Pie</h4>
+        <div class="grid-graph">
+            <div class="grid-graph1">
+            <div id="os-Win-lbl">Positive <span>{{positive}}%</span></div>
+            <div id="os-Other-lbl">Negative<span>{{neutral}}%</span></div>
+            <div id="os-Mac-lbl">Neutral <span>{{negative}}%</span></div>
+         </div>
+         </div>
+         <input type="hidden" id="pn" value="{{positive}}">
+         <input type="hidden" id="ng" value="{{neutral}}">
+         <input type="hidden" id="nn" value="{{negative}}">
+    <div class="grid-2">
+        <canvas id="pie" height="315" width="470" style="width: 470px; height: 315px;"></canvas>
+        <script>
+            var pieData = [
+                {
+                    value: parseInt(document.getElementById('ng').value),
+                    color:"#D95459"
+                },
+                {
+                    value : parseInt(document.getElementById('pn').value),
+                    color : "#1ABC9C"
+                },
+                {
+                    value : parseInt(document.getElementById('nn').value),
+                    color : "#3BB2D0"
+                }
+            
+            ];
+            new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+        </script>
+    </div>
+    <div class="clearfix"> 
+        
+    </div>
+</div>
+</div>
+<!-- tab content -->
+<div class="col-md-12 tab-content tab-content-in">
+<div class="tab-pane active text-style" id="tab1">
+<div class="inbox-right">
+     
+    
+</div>
+<div class="tab-pane text-style" id="tab2">
+<div class="inbox-right">
+     
+    <div class="mailbox-content">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Sr. ID</th>
+                    <th>Reviews Comments</th>
+                    <th>Polarity</th>
+                    <th>Status</th>
+                </tr>
+               {% for i,j in data.items %}
+               <tr class="table-row">
+                    <td class="table-img">
+                        {{forloop.counter}}
+                    </td>
+                    <td class="table-text">
+                        
+                        <p style="color:black">{{j}}</p>
+                    </td>
+                    <td>
+                        <span class="fam">{{i}}</span>
+                    </td>
+                    <td class="march">
+                        {% if i > 0.00 %}
+                        <span style="color:green">Positive</span>
+                        {% elif i < 0 %}
+                        <span style="color:red">Negative</span>
+                        {% else %}
+                        <span style="color:blue">Neutral</span>
+                        {%endif%}
+                    </td>
+                  
+                    <td >
+                       <i class="fa fa-star-half-o icon-state-warning"></i>
+                    </td>
+
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+       </div>
+    </div>
+</div>
+
+</div>
+</div>
+<div class="clearfix"> </div>
+</div>
+
+</div>
+
+<!--//grid-->
+<!---->
+{%endblock%}style="color:green"

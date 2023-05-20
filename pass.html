@@ -1,0 +1,89 @@
+
+{%block content %}
+{%load static%}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Minimal an Admin Panel Category Flat Bootstrap Responsive Website Template | Signin :: w3layouts</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="{%static  'sentiment/css/bootstrap.min.css'%}" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<link href="{%static  'sentiment/css/style.css'%}" rel='stylesheet' type='text/css' />
+<link href="{%static  'sentiment/css/font-awesome.css'%}" rel="stylesheet"> 
+<script src="{%static  'sentiment/js/jquery.min.js'%}"> </script>
+<script src="{%static  'sentiment/js/bootstrap.min.js'%}"> </script>
+</head>
+<body>
+	<div class="login">
+		<h1><a href="login">Playstore Password Recovery</a></h1>
+		<div class="login-bottom">
+			<h2>Enter your email</h2>
+			<form action="resetps1" method="POST">
+                {%csrf_token%}
+			<div class="col-md-8">
+				<input type="hidden" name="email" placeholder="" value="{{data.email}}" required="">
+					
+                <div class="login-mail">
+					<input type="text" name="ques" placeholder="" value="{{data.ques}}" required="">
+					<i class="fa fa-envelope"></i>
+                </div>
+                
+                <div class="login-mail">
+					<input type="text" name="ans" placeholder="Enter Answer"  required="">
+					<i class="fa fa-envelope"></i>
+                </div>
+                
+                <input type="hidden" name="pans" placeholder="" value="{{data.ans}}"  required="">
+					
+                <div class="login-mail">
+					<input type="text" name="password" placeholder="Enter New Password"  required="">
+					<i class="fa fa-envelope"></i>
+                </div>
+                
+                <label class="hvr-shutter-in-horizontal login-sub">
+                <center>
+					<input type="submit" value="Change" style="background-color: #d95459; border:none; padding:7px; ">
+					</label> 
+                </center>
+			</div>
+			<br><br>
+			{% for message in messages %}
+			<div class="alert {{ message.tags }} alert-dismissible" role ="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-lable="close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<center>
+					<h3 style="color:red">{{message | safe }}</h3>
+				</center>
+			</div>
+			{% endfor %}
+			
+			<div class="clearfix"> </div>
+			</form>
+			<br><br>
+			<center><a href="login" style="text-decoration: underline;">Back To Login</a></center>
+		</div>
+	</div>
+		<!---->
+<div class="copy-right">
+            <p> &copy; 2021 Playstore. All Rights Reserved | Design by Tech Warriors</p></div>  
+<!---->
+<!--scrolling js-->
+	<script src="{%static  'sentiment/js/jquery.nicescroll.js'%}"></script>
+	<script src="{%static  'sentiment/js/scripts.js'%}"></script>
+	<!--//scrolling js-->
+</body>
+</html>
+
+
+{%endblock%}

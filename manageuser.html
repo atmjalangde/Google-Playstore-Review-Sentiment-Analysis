@@ -1,0 +1,66 @@
+{% extends 'header1.html'%}
+
+{%block content %}
+
+
+ 	<!--banner-->	
+     <div class="banner">
+        <h2>
+        <a href="index.html">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Blank</span>
+        </h2>
+    </div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+
+
+    <div class="blank-page">
+        <div class="tb">
+            <center>
+            <table border="1">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>City</th>
+                    <th>Delete </th>
+                </tr>
+                {% for i in data  %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td>{{i.city}}</td>
+                    <td><form action="deleteuser" method="POST" >
+                        {%csrf_token%}
+                        <input type="hidden" value="{{i.id}}" name="id">
+                        <input type="submit" value="delete" ></form>
+                    </td>
+            
+                </tr>
+                {%endfor%}
+            </table>
+        </center>
+
+            </div>
+       
+    </div>
+   </div>
+
+<!--//faq-->
+<!---->
+</div>
+<div class="clearfix"> </div>
+</div>
+
+
+
+<center>
+<h1>Welcome Manage User</h1>
+
+</center>
+{%endblock%}

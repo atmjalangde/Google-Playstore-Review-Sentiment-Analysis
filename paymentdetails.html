@@ -1,0 +1,62 @@
+{% extends 'header1.html'%}
+
+{%block content %}
+
+
+ 	<!--banner-->	
+     <div class="banner">
+        <h2>
+        <a href="index.html">Home</a>
+        <i class="fa fa-angle-right"></i>
+        <span>Blank</span>
+        </h2>
+    </div>
+<!--//banner-->
+<!--faq-->
+<div class="blank">
+
+
+    <div class="blank-page">
+        <div class="tb">
+            <center>
+                <h1>User Payment</h1>
+            <table border="1">
+                <tr>
+                    <th>Sr No.</th>
+                    <th>Transaction ID </th>
+                    <th>Email</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+                {% for i in payment  %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.old}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.date}}</td>
+                    <td>{{i.status}}</td> 
+                    </td>
+            
+                </tr>
+                {%endfor%}
+            </table>
+        </center>
+
+            </div>
+       
+    </div>
+   </div>
+
+<!--//faq-->
+<!---->
+</div>
+<div class="clearfix"> </div>
+</div>
+
+
+
+<center>
+<h1>Welcome Manage User</h1>
+
+</center>
+{%endblock%}

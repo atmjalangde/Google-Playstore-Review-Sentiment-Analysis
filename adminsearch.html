@@ -1,0 +1,26 @@
+{% extends 'header1.html'%}
+
+{%block content %}
+
+<center>
+<div class="user">
+    
+    <h1>Enter Your app name seperated by comma(,)</h1>
+    
+    <form action="asearch" method="POST">
+       
+        
+       
+        {%csrf_token%}
+        <textarea name="search" placeholder="" rows="4" cols="30"></textarea>
+        <br>
+
+       
+        <input type="submit" value="search">
+        <br><br>
+        
+       
+    </form>
+</div>
+</center>
+{%endblock%}
